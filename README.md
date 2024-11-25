@@ -13,4 +13,6 @@
 | BaiduMap            | implementation "files(src/libs/BaiduLBS_Android.aar)" {version:7.6.3} |
 
 ### ▶️ Demo
-(24-11-25-18-36-52.mp4)
+<video width="100%" height="auto" controls>
+    <source src="video.mp4" type="video/mp4">
+</video>
