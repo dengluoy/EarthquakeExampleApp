@@ -2,33 +2,29 @@ package com.it.earthquake.ui.activity
 
 import android.graphics.Color
 import android.os.Bundle
-import android.os.Parcelable
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.baidu.location.BDAbstractLocationListener
 import com.baidu.location.BDLocation
 import com.baidu.location.LocationClient
 import com.baidu.location.LocationClientOption
 import com.baidu.mapapi.map.BaiduMap
+import com.baidu.mapapi.map.BitmapDescriptorFactory
 import com.baidu.mapapi.map.CircleOptions
 import com.baidu.mapapi.map.InfoWindow
 import com.baidu.mapapi.map.MapStatusUpdateFactory
-import com.baidu.mapapi.map.MapView
+import com.baidu.mapapi.map.MarkerOptions
 import com.baidu.mapapi.map.MyLocationData
-import com.baidu.mapapi.map.Overlay
-import com.baidu.mapapi.map.PolygonOptions
-import com.baidu.mapapi.map.PolylineOptions
 import com.baidu.mapapi.model.LatLng
 import com.baidu.mapapi.utils.CoordinateConverter
 import com.it.david.utils.log.DavidLogger
+import com.it.earthquake.R
 
 import com.it.earthquake.databinding.ActivityEarthquakeMapBinding
 import com.it.earthquake.model.Feature
 import com.it.earthquake.utils.Constants
 import com.it.earthquake.utils.Utils
 import kotlin.math.log10
-import kotlin.math.sqrt
 
 class EarthquakeMapActivity : AppCompatActivity() {
 
@@ -92,7 +88,7 @@ class EarthquakeMapActivity : AppCompatActivity() {
     private fun internalInitView() = with(mBinding) {
         mFeature = intent.getParcelableExtra<Feature>(Constants.EXTRA_ITEM) as Feature
 
-        DavidLogger.i("mFeature geometry : ${mFeature.geometry.coordinates.joinToString("、")}")
+        DavidLogger.i("mFeature geometry : ${mFeature.geometry!!.coordinates.joinToString("、")}")
         val latlng = CoordinateConverter().from(CoordinateConverter.CoordType.COMMON)
             .coord(LatLng(mFeature.geometry.coordinates[1], mFeature.geometry.coordinates[0]))
             .convert()
@@ -100,13 +96,12 @@ class EarthquakeMapActivity : AppCompatActivity() {
         val circleOptions = CircleOptions()
             .center(latlng)
             .radius(Utils.calculateRadius(mFeature.properties.mag, mFeature.geometry.coordinates[2]).toInt())
-//            .radius((mFeature.properties.mag * (mFeature.geometry.coordinates[2] * 80)).toInt())
-            .fillColor(Color.argb(100, 255, 69, 0))
+            .fillColor(Color.argb(80, 255, 69, 0))
 
+        val desc = "震级:${mFeature.properties.mag}\n位置：${mFeature.properties.place}\n深度：${mFeature.geometry.coordinates[2]}"
         val infoWindow = InfoWindow(
             TextView(baseContext).apply {
-                text =
-                    "震级:${mFeature.properties.mag}\n位置：${mFeature.properties.place}\n深度：${mFeature.geometry.coordinates[2]}"
+                text = desc
                 setTextColor(Color.BLACK)
                 setBackgroundColor(Color.argb(50, 0, 70, 70))
                 setPadding(3, 3, 3, 3)
@@ -115,9 +110,17 @@ class EarthquakeMapActivity : AppCompatActivity() {
             -50
         )
 
+        val bitmapDescriptor = BitmapDescriptorFactory.fromResource(R.mipmap.express_icon_location_centre_point)
+        // 设置标记
+        val markerOptions = MarkerOptions()
+            .position(latlng)
+            .icon(bitmapDescriptor)
+
+
         mMap.animateMapStatus(MapStatusUpdateFactory.newLatLngZoom(latlng, Utils.calculateResultLinear(
             log10( mFeature.geometry.coordinates[2]))))
         mMap.addOverlay(circleOptions)
+        mMap.addOverlay(markerOptions)
         mMap.showInfoWindow(infoWindow)
     }
 

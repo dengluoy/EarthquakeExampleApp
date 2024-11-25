@@ -3,6 +3,7 @@ package com.it.earthquake.ui.adapter
 import android.graphics.Color
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import com.it.earthquake.model.Feature
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -26,8 +27,16 @@ class TextBindingAdapter {
 
         @JvmStatic
         @BindingAdapter(value = ["warningColor"])
-        fun earthquakeText(textView: TextView, mag: Double) {
+        fun earthquakeTextColor(textView: TextView, mag: Double) {
             textView.setTextColor(if (mag >= 7.5) Color.RED else Color.BLACK)
         }
+
+        @JvmStatic
+        @BindingAdapter(value = ["earthquakeDesc"])
+        fun earthquakeTextColor(textView: TextView, feature: Feature) {
+            val text = "Magnitude ${feature.properties?.mag}，${feature.geometry!!.coordinates[2]}m"
+            textView.text = text
+        }
+
     }
 }
