@@ -13,5 +13,4 @@
 | BaiduMap            | implementation "files(src/libs/BaiduLBS_Android.aar)" {version:7.6.3} |
 
 ### ▶️ Demo
-
-<video src="https://github.com/dengluoy/EarthquakeExampleApp/blob/master/24-11-25-18-36-52.mp4" controls="controls" style="max-width: 730px;"></video> 
+(24-11-25-18-36-52.mp4)
