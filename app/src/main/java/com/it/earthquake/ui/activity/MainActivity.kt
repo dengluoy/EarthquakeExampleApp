@@ -1,5 +1,6 @@
 package com.it.earthquake.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -10,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.it.earthquake.databinding.ActivityMainBinding
 import com.it.earthquake.ui.adapter.EarthquakeListAdapter
+import com.it.earthquake.utils.Constants
 import com.it.earthquake.viewmodel.EarthquakeListViewModel
 
 
@@ -31,7 +33,9 @@ class MainActivity : AppCompatActivity() {
         mBinding.earthquakeRecyclerView.layoutManager = LinearLayoutManager(this)
         mViewModel = ViewModelProvider.create(this)[EarthquakeListViewModel::class]
         mAdapter = EarthquakeListAdapter(arrayListOf()) { earthquake ->
-            Toast.makeText(this, earthquake.type, Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, EarthquakeMapActivity::class.java)
+            intent.putExtra(Constants.EXTRA_ITEM, earthquake)
+            startActivity(intent)
         }
         observeLiveData()
         mBinding.earthquakeRecyclerView.adapter = mAdapter
