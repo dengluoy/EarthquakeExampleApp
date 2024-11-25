@@ -13,6 +13,4 @@
 | BaiduMap            | implementation "files(src/libs/BaiduLBS_Android.aar)" {version:7.6.3} |
 
 ### ▶️ Demo
-<video width="100%" height="auto" controls>
-    <source src="video.mp4" type="video/mp4">
-</video>
+![](video.gif)
