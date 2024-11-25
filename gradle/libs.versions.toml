@@ -1,6 +1,8 @@
 [versions]
 agp = "8.6.0"                       # Android Gradle Plugin 插件。 用于构建的工具.
 compiler = "4.15.0"
+coreTesting = "2.2.0"
+espressoContrib = "3.6.1"
 kotlin = "1.9.0"                    # Kotlin 插件的版本.
 coreKtx = "1.10.1"                  # androidx.core:core-ktx 库的版本.
 junit = "4.13.2"                    # JUnit 测试框架的版本.
@@ -13,6 +15,9 @@ appcompat = "1.7.0"
 baiduMap = "7.6.3"                   # 百度地图SDK
 glide = "4.15.1"
 material = "1.12.0"
+mockk = "1.13.3"
+rules = "1.6.1"
+runner = "1.6.2"
 rxJava2 = "2.2.21"
 rxAndroid = "2.1.1"
 rxAdapter = "2.9.0"
@@ -26,6 +31,11 @@ recyclerViewSelection = "1.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-core-testing = { module = "androidx.arch.core:core-testing", version.ref = "coreTesting" }
+androidx-espresso-contrib = { module = "androidx.test.espresso:espresso-contrib", version.ref = "espressoContrib" }
+androidx-espresso-intents = { module = "androidx.test.espresso:espresso-intents", version.ref = "espressoContrib" }
+androidx-rules = { module = "androidx.test:rules", version.ref = "rules" }
+androidx-runner = { module = "androidx.test:runner", version.ref = "runner" }
 compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "compiler" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -46,6 +56,8 @@ androidx-constraint-layout = { group = "androidx.constraintlayout", name = "cons
 androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerView" }
 androidx-recyclerview-selection = { group = "androidx.recyclerview", name = "recyclerview-selection", version.ref = "recyclerViewSelection" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+mockk-android = { module = "io.mockk:mockk-android", version.ref = "mockk" }
 rx-java2 = { group = "io.reactivex.rxjava2", name = "rxjava", version.ref = "rxJava2" }
 rx-android = { group = "io.reactivex.rxjava2", name = "rxandroid", version.ref = "rxAndroid" }
 rx-adapter = { group = "com.squareup.retrofit2", name = "adapter-rxjava2", version.ref = "rxAdapter" }
