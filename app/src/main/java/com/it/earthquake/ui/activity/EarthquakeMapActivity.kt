@@ -17,7 +17,7 @@ import com.baidu.mapapi.map.MarkerOptions
 import com.baidu.mapapi.map.MyLocationData
 import com.baidu.mapapi.model.LatLng
 import com.baidu.mapapi.utils.CoordinateConverter
-import com.it.david.utils.log.DavidLogger
+import com.it.earthquake.utils.log.DavidLogger
 import com.it.earthquake.R
 
 import com.it.earthquake.databinding.ActivityEarthquakeMapBinding

@@ -1,5 +1,6 @@
 package com.it.david.utils.log
 
+import com.it.earthquake.utils.log.DavidLogger
 import java.util.concurrent.Executor
 
 /**
@@ -107,10 +108,10 @@ operator fun DavidLogger.plusAssign(other: DavidLogger.LogPrinter) {
  */
 fun DavidLogger.LogPrinter.filter(
     predicate: (
-            level: DavidLogger.LogLevel,
-            tag: String,
-            messageAny: Any?,
-            throwable: Throwable?
+        level: DavidLogger.LogLevel,
+        tag: String,
+        messageAny: Any?,
+        throwable: Throwable?
             ) -> Boolean
 ) =
     intercept {logPrinter, level, tag, messageAny, throwable ->

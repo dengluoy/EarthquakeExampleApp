@@ -1,6 +1,6 @@
-package com.it.david.utils.log
+package com.it.earthquake.utils.log
 
-import java.util.logging.Logger
+import com.it.david.utils.log.createPlatformDefaultLogPrinter
 
 /**
  * 日志工具类.

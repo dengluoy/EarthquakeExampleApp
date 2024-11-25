@@ -1,6 +1,7 @@
 package com.it.david.utils.log
 
 import android.util.Log
+import com.it.earthquake.utils.log.DavidLogger
 import java.io.PrintStream
 
 open class EmptyLogPrinter : DavidLogger.LogPrinter {
