@@ -32,13 +32,12 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginEnd="10dp"
-                android:contentDescription="Map Image"
                 android:scaleType="centerCrop"
                 android:src="@mipmap/earth_large" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -53,20 +52,33 @@
                     android:maxLines="2"
                     android:paddingHorizontal="10dp"
                     android:text="@{item.properties.title}"
-                    android:textSize="20sp" />
+                    android:textSize="18sp"
+                    app:warningColor="@{item.properties.mag}" />
 
-                <!-- string -->
                 <TextView
                     android:id="@+id/tvRegion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/inter_medium"
                     android:gravity="start"
                     android:paddingHorizontal="10dp"
-                    android:text="@{String.valueOf(item.properties.mag)}"
-                    android:textSize="20sp" />
+                    android:text="@{String.valueOf(item.properties.mag) + '，' + String.valueOf(item.geometry.coordinates[2])}"
+                    android:textSize="15sp"
+                    app:warningColor="@{item.properties.mag}" />
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|bottom"
+                    android:fontFamily="@font/inter_medium"
+                    android:gravity="start"
+                    android:paddingHorizontal="10dp"
+                    android:textSize="15sp"
+                    app:formatDate="@{item.properties.time}"
+                    app:warningColor="@{item.properties.mag}" />
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

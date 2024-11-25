@@ -7,6 +7,7 @@ import retrofit2.http.Query
 
 interface EarthquakeAPI {
     // Request Example: https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2023-01-01&endtime=2024-01-01&minmagnitude=6
+
     @GET("query")
     fun getEarthquakes(
         @Query("format") format: String? = "geojson",

@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.it.earthquake.R
 import com.it.earthquake.databinding.ItemEarthquakeBinding
 import com.it.earthquake.model.Feature
-import com.it.earthquake.viewmodel.EarthquakeListViewModel
 
 class EarthquakeListAdapter(
     private val earthquakes: ArrayList<Feature>,
@@ -18,6 +17,7 @@ class EarthquakeListAdapter(
     RecyclerView.Adapter<EarthquakeListAdapter.VM>() {
 
     class VM(val binding: ItemEarthquakeBinding) : RecyclerView.ViewHolder(binding.root) {}
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VM {
         val binding = DataBindingUtil.inflate<ItemEarthquakeBinding>(
@@ -36,8 +36,6 @@ class EarthquakeListAdapter(
     override fun onBindViewHolder(holder: VM, position: Int) {
         val earthquakeItem = earthquakes[position]
         holder.binding.item = earthquakeItem
-        holder.binding.tvRegion.setTextColor(if (earthquakeItem.properties.mag >= 7.5) Color.RED else Color.BLACK)
-        holder.binding.tvMagnitude.setTextColor(if (earthquakeItem.properties.mag >= 7.5) Color.RED else Color.BLACK)
         holder.binding.root.setOnClickListener {
             onItemClick(earthquakeItem)
         }
@@ -50,5 +48,7 @@ class EarthquakeListAdapter(
         earthquakes.addAll(liste)
         diffResult.dispatchUpdatesTo(this)
     }
+
+
 
 }
