@@ -12,6 +12,11 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
+/**
+ * Earthquake list view model
+ *
+ * @constructor Create empty Earthquake list view model
+ */
 class EarthquakeListViewModel : ViewModel() {
     val mEarthquakeFeature = MutableLiveData<ArrayList<Feature>>()
     val mErrorMessage = MutableLiveData<Boolean>()
@@ -27,6 +32,10 @@ class EarthquakeListViewModel : ViewModel() {
         tumEarthquake()
     }
 
+    /**
+     * Tum earthquake
+     *
+     */
     private fun tumEarthquake() {
         mProgressStatus.value = true
         mDisposable.add(
