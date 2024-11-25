@@ -1,0 +1,67 @@
+[versions]
+agp = "8.6.0"                       # Android Gradle Plugin 插件。 用于构建的工具.
+compiler = "4.15.0"
+compilerVersion = "3.1.4"
+kotlin = "1.9.0"                    # Kotlin 插件的版本.
+coreKtx = "1.10.1"                  # androidx.core:core-ktx 库的版本.
+junit = "4.13.2"                    # JUnit 测试框架的版本.
+junitVersion = "1.1.5"              # AndroidX 扩展 JUnit 的版本.
+espressoCore = "3.5.1"              # Espresso UI 测试框架的版本.
+lifecycleRuntimeKtx = "2.8.7"       # Lifecycle KTX 库的版.
+activityCompose = "1.9.3"           # Activity Compose 支持库的版本.
+composeBom = "2024.04.01"
+appcompat = "1.7.0"
+baiduMap = "7.6.3"                   # 百度地图SDK
+glide = "4.15.1"
+material = "1.12.0"
+rxJava2 = "2.2.21"
+rxAndroid = "2.1.1"
+rxAdapter = "2.9.0"
+retrofit2 = "2.9.0"
+gson = "2.9.0"
+coroutinues = "1.7.3"
+viewModel = "2.8.7"
+swipererfreshLayout = "1.1.0"
+constraintLayout = "2.2.0"
+recyclerView = "1.3.2"
+recyclerViewSelection = "1.1.0"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "compiler" }
+databinding-compiler = { module = "com.android.databinding:compiler", version.ref = "compilerVersion" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-swiperefresh-layout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swipererfreshLayout" }
+androidx-constraint-layout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintLayout" }
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerView" }
+androidx-recyclerview-selection = { group = "androidx.recyclerview", name = "recyclerview-selection", version.ref = "recyclerViewSelection" }
+#androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "viewModel" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
+rx-java2 = { group = "io.reactivex.rxjava2", name = "rxjava", version.ref = "rxJava2" }
+rx-android = { group = "io.reactivex.rxjava2", name = "rxandroid", version.ref = "rxAndroid" }
+rx-adapter = { group = "com.squareup.retrofit2", name = "adapter-rxjava2", version.ref = "rxAdapter" }
+squareup-retrofit2 = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit2" }
+kotlin-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "gson" }
+bumptech-glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutinues" }
+coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutinues" }
+
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }

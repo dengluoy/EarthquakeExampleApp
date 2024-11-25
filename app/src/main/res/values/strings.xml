@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">EarthquakeExampleApp</string>
+    <string name="retry">Pull to Retry</string>
+</resources>
